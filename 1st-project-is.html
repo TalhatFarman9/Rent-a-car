@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DriveEasy – Car Rental in Rawalpindi & Islamabad</title>
+<meta name="description" content="Rent a car with or without driver in Rawalpindi and Islamabad. Clear pricing, verified drivers, 24/7 support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --ink:#10303f;--road:#1c4a5f;--sun:#f4b41a;
+ --mist:#f4f7f8;--line:#d5e0e4;--white:#fff
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);
+ background:var(--white);line-height:1.6}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+header{background:var(--ink);color:var(--white)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:1.4rem;text-decoration:none}
+.logo b{color:var(--sun)}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{text-decoration:none;font-weight:600}
+
+.btn{display:inline-block;background:var(--sun);color:var(--ink);
+ font-weight:700;padding:13px 24px;border-radius:8px;
+ text-decoration:none;border:0;cursor:pointer;font-size:1rem}
+.btn:hover{background:#ffc63d}
+
+.hero{padding:56px 0 72px;display:grid;gap:36px;
+ grid-template-columns:1.1fr .9fr;align-items:center}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800}
+.hero p{margin:18px 0 26px;color:#c9dbe2;max-width:46ch;font-size:1.1rem}
+
+.book{background:var(--white);color:var(--ink);padding:24px;border-radius:14px}
+.book h2{font-size:1.3rem;margin-bottom:14px}
+.book label{display:block;font-weight:600;font-size:.9rem;margin:10px 0 4px}
+.book input,.book select{width:100%;padding:11px;border:1px solid var(--line);
+ border-radius:8px;font:inherit}
+.book .btn{width:100%;margin-top:16px}
+
+section{padding:64px 0}
+section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:8px}
+.sub{color:#496572;margin-bottom:32px;max-width:52ch}
+
+.fleet,.why,.steps{display:grid;gap:18px}
+.fleet{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.car{border:1px solid var(--line);border-radius:12px;padding:22px}
+.car h3{font-size:1.25rem}
+.car .price{font-size:1.5rem;font-weight:800;margin:10px 0 4px}
+.car small,.sub{color:#496572}
+
+.alt{background:var(--mist)}
+.why{gap:26px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.why h3{font-size:1.15rem;margin-bottom:6px}
+
+.steps{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+ counter-reset:s;list-style:none}
+.steps li{counter-increment:s;padding:20px;background:var(--white);
+ border-radius:12px;border:1px solid var(--line)}
+.steps li::before{content:counter(s);display:grid;place-items:center;
+ width:34px;height:34px;border-radius:50%;background:var(--sun);
+ font-weight:800;margin-bottom:10px}
+
+.cta{background:var(--road);color:var(--white);text-align:center}
+.cta p{margin:10px 0 24px;color:#c9dbe2}
+footer{background:var(--ink);color:#9fb8c2;padding:26px 0;font-size:.9rem}
+
+@media(max-width:780px){
+ .hero{grid-template-columns:1fr;padding:36px 0 48px}
+ nav ul{display:none}
+ section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <nav aria-label="Main">
+   <a class="logo" href="#">Drive<b>Easy</b></a>
+   <ul><li><a href="#fleet">Cars</a></li><li><a href="#how">How it works</a></li><li><a href="#why">Why us</a></li><li><a href="#book">Book</a></li></ul>
+  </nav>
+  <div class="hero">
+   <div>
+    <h1>Book a car in two minutes. Pay a clear price.</h1>
+    <p>Self-drive or with a verified driver, across Rawalpindi and Islamabad. No hidden charges, no surprises at drop-off.</p>
+    <a class="btn" href="#book">Book now</a>
+   </div>
+   <form class="book" id="book" onsubmit="event.preventDefault();document.getElementById('msg').textContent='Request received. We will call you shortly.';">
+    <h2>Find your ride</h2>
+    <label for="city">Pickup city</label>
+    <select id="city"><option>Rawalpindi</option><option>Islamabad</option></select>
+    <label for="date">Pickup date</label>
+    <input id="date" type="date" required>
+    <label for="type">Car type</label>
+    <select id="type"><option>Economy</option><option>Sedan</option><option>SUV</option></select>
+    <label for="phone">Phone number</label>
+    <input id="phone" type="tel" placeholder="03XX XXXXXXX" required>
+    <button class="btn" type="submit">Request booking</button>
+    <p id="msg" role="status" style="margin-top:10px;font-weight:600"></p>
+   </form>
+  </div>
+ </div>
+</header>
+
+<section id="fleet">
+ <div class="wrap">
+  <h2>Pick your car</h2>
+  <p class="sub">Prices are per day and include insurance. Fuel is separate.</p>
+  <div class="fleet">
+   <div class="car"><h3>Suzuki Alto / Cultus</h3><div class="price">Rs 6,000</div><small>Economy · 4 seats · Manual</small></div>
+   <div class="car"><h3>Toyota Corolla</h3><div class="price">Rs 11,000</div><small>Sedan · 5 seats · Automatic</small></div>
+   <div class="car"><h3>Toyota Fortuner</h3><div class="price">Rs 24,000</div><small>SUV · 7 seats · Automatic</small></div>
+  </div>
+ </div>
+</section>
+
+<section id="how" class="alt">
+ <div class="wrap">
+  <h2>How it works</h2>
+  <p class="sub">From request to keys in one phone call.</p>
+  <ol class="steps">
+   <li><b>Choose a car</b><br>Select city, date and car type.</li>
+   <li><b>Confirm by phone</b><br>We call to confirm price and documents.</li>
+   <li><b>Pick up or get delivered</b><br>Collect it or we bring it to you.</li>
+   <li><b>Drive and return</b><br>Return the car at the agreed time.</li>
+  </ol>
+ </div>
+</section>
+
+<section id="why">
+ <div class="wrap">
+  <h2>Why DriveEasy</h2>
+  <p class="sub">Built around what renters actually worry about.</p>
+  <div class="why">
+   <div><h3>One clear price</h3><p>The quote you get is the price you pay.</p></div>
+   <div><h3>Verified drivers</h3><p>CNIC and license checked before every job.</p></div>
+   <div><h3>Support any hour</h3><p>Call or WhatsApp us, day or night.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="wrap">
+  <h2>Need a car this weekend?</h2>
+  <p>Send a request and we will call you back.</p>
+  <a class="btn" href="#book">Book now</a>
+ </div>
+</section>
+
+<footer><div class="wrap">© 2026 DriveEasy. Student project – Rawalpindi, Pakistan.</div></footer>
+</body>
+</html>
